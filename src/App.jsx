@@ -139,7 +139,7 @@ const App = () => {
               <li>オンラインプログラミングスクール向けwebアプリを制作：2024年5月17日（X-Server：SSH）</li>
               <li>自走力があり、自社開発企業で十分に活躍できるランク：2024年6月20日（TechTrain の Rank Up 判定＝Junior Engineer）</li>
               <li>ubuntu の環境構築と Linux コマンドを使用した個人用パスワードマネージャーを制作：2024年6月27日（公開鍵と秘密鍵）</li>
-              <li>Portfolio サイトを公開：2024年7月2日（Vite + React）</li>
+              <li>Portfolio サイトを公開：2024年7月3日（Render：Vite + React）</li>
             </ul>
           </div>
         </section>

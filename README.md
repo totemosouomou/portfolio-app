@@ -1,5 +1,6 @@
 # portfolio-app
 
+Build Command: npm install; npm run build
 
 # React + Vite
 
