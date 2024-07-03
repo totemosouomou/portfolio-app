@@ -1,14 +1,19 @@
 {
-  "name": "react-portfolio-app-stations",
+  "name": "portfolio-app",
+  "homepage": "https://totemosouomou.github.io/portfolio-app/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "rm": "rimraf docs",
+  "mv": "xcopy /E /I dist docs",
+  "git": "git add . && git commit && git push origin main",
+  "deploy": "npm run rm && npm run build && npm run mv && npm run git",
+  "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+  "preview": "vite preview"
+},
   "dependencies": {
     "node-sass": "^9.0.0",
     "react": "^18.3.1",
