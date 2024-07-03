@@ -1,24 +1,37 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styles from '../App.module.scss';
 
-const Projects = ({ id, title, appName, image1, image2, description, comment }) => {
+interface ProjectsProps {
+  id: string;
+  title: string;
+  appName: string;
+  image1: string;
+  image2: string;
+  description: string;
+  comment: string;
+};
+
+const Projects: React.FC<ProjectsProps> = ({ id, title, appName, image1, image2, description, comment }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const textareaRef = useRef(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     const textarea = textareaRef.current;
-    const resizeTextarea = () => {
-      textarea.style.height = 'auto';
-      textarea.style.height = textarea.scrollHeight + 'px';
-    };
+    if (textarea) {
+      const resizeTextarea = () => {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+      };
 
-    resizeTextarea();
-    textarea.addEventListener('input', resizeTextarea);
-    window.addEventListener('resize', resizeTextarea);
+      resizeTextarea();
+      textarea.addEventListener('input', resizeTextarea);
+      window.addEventListener('resize', resizeTextarea);
 
-    return () => {
-      textarea.removeEventListener('input', resizeTextarea);
-      window.removeEventListener('resize', resizeTextarea);
-    };
+      return () => {
+        textarea.removeEventListener('input', resizeTextarea);
+        window.removeEventListener('resize', resizeTextarea);
+      };
+    }
   }, []);
 
   return (
@@ -33,7 +46,6 @@ const Projects = ({ id, title, appName, image1, image2, description, comment }) 
           className="relative flex-shrink-0 md:col-span-2"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          onClick={() => setIsHovered(!isHovered)}
           onTouchStart={() => setIsHovered(!isHovered)}
         >
           <img
@@ -54,8 +66,8 @@ const Projects = ({ id, title, appName, image1, image2, description, comment }) 
       </div>
       <textarea
         ref={textareaRef}
-        className="mt-8 md:mt-20 text-sm md:px-10"
-        style={{ width: '100%', maxWidth: '85%' }}
+        className={`mt-8 md:mt-20 text-sm md:px-10 ${styles.textareaStyle}`}
+        aria-label="Comment"
         value={comment}
         readOnly
       />

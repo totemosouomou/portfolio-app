@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",                     /* コンパイル後の JavaScript のバージョン */
+    "module": "commonjs",                /* モジュールのバンドル方法 */
+    "jsx": "react",                      /* JSX を有効にする */
+    "strict": true,                      /* 厳格な型チェックを有効にする */
+    "esModuleInterop": true,             /* CommonJS モジュールを ES6 モジュールに変換する */
+    "forceConsistentCasingInFileNames": true, /* ファイル名の大文字小文字の一貫性を強制する */
+    "moduleResolution": "node",          /* モジュール解決の方法を指定する */
+    "resolveJsonModule": true,           /* JSON モジュールの解決を有効にする */
+    "isolatedModules": true,             /* 各ファイルを個別のモジュールとして処理する */
+    "noEmit": true                       /* 実際に JavaScript ファイルを生成しない */
+  },
+  "include": [
+    "./src/**/*"                          /* コンパイル対象とするファイルのパス */
+  ],
+  "exclude": ["node_modules"]
+}

@@ -1,7 +1,12 @@
 import React from 'react';
 import styles from './Header.module.scss';
 
-const Header = ({ name, title }) => {
+interface HeaderProps {
+  name: string;
+  title: string;
+};
+
+const Header: React.FC<HeaderProps> = ({ name, title }) => {
   return (
     <header className={styles.header}>
       <div className="container mx-auto flex items-center justify-between">

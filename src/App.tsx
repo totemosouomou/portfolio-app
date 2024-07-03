@@ -1,11 +1,15 @@
 import React from 'react';
-import Header from './components/Header/Header.jsx';
-import AboutMe from './components/AboutMe.jsx';
-import Skills from './components/Skills.jsx';
-import Projects from './components/Projects.jsx';
+import Header from './components/Header/Header';
+import AboutMe from './components/AboutMe';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
 import styles from './App.module.scss';
 
-const App = () => {
+interface AppProps {
+  // props の型定義を追加する場合、ここに記述する
+}
+
+const App: React.FC<AppProps> = () => {
 
   // マイルストーンの配列を定義
   const milestones = [
@@ -14,7 +18,7 @@ const App = () => {
     '30 commit：2024年2月17日',
     '60 commit：2024年3月5日',
     'チーム開発の現場へメンバーの一員として参加：2024年3月8日',
-    'チーム開発 search の責任者として MVC を制作：2024年4月5日（Heroku：Hroku CLI）',
+    'チーム開発 search の責任者として MVC を制作：2024年4月5日（Heroku：Heroku CLI）',
     'オンラインプログラミングスクール向けwebアプリを制作：2024年5月17日（X-Server：SSH）',
     '自走力があり、自社開発企業で十分に活躍できるランク：2024年6月20日（TechTrain の Rank Up 判定＝Junior Engineer）',
     'ubuntu の環境構築と Linux コマンドを使用した個人用パスワードマネージャーを制作：2024年6月27日（公開鍵と秘密鍵）',

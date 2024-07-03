@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Skills = ({ milestones }) => {
+interface SkillsProps {
+  milestones: string[];
+};
+
+const Skills: React.FC<SkillsProps> = ({ milestones }) => {
 
   const skillsData = [
     {

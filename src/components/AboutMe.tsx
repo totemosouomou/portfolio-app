@@ -1,6 +1,13 @@
 import React from 'react';
 
-const AboutMe = ({ imagePath, aboutTitle, aboutText1, aboutText2 }) => {
+interface AboutMeProps {
+  imagePath: string;
+  aboutTitle: string;
+  aboutText1: string;
+  aboutText2: string;
+};
+
+const AboutMe: React.FC<AboutMeProps> = ({ imagePath, aboutTitle, aboutText1, aboutText2 }) => {
   return (
     <section id="about" className="bg-gray-100 bg-opacity-75 py-12">
       <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
