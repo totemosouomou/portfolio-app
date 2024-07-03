@@ -40,6 +40,7 @@ const MyProjectsSection = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={() => setIsHovered(!isHovered)}
+          onTouchStart={() => setIsHovered(!isHovered)}
         >
           <img
             src="/school-detail.png"

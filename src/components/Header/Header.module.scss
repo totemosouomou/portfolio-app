@@ -20,6 +20,7 @@
   }
 
   p {
+    white-space: nowrap;
     margin: 0;
   }
 
@@ -29,13 +30,6 @@
     gap: 1rem;
     padding: 0;
     margin: 0;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: flex-end;
-      margin-right: 1rem;
-      width: 100%;
-    }
 
     li {
       a {

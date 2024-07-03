@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './Header.module.scss';
 
-const Header = () => {
+const Header = ({ name, title }) => {
   return (
     <header className={styles.header}>
       <div className="container mx-auto flex items-center justify-between">
         <div className="space-y-1">
-          <h1 className="text-3xl font-bold">丸岡裕也</h1>
-          <p className="text-lg font-medium">Web Engineer</p>
+          <h1 className="text-3xl font-bold">{name}</h1>
+          <p className="text-lg font-medium">{title}</p>
         </div>
         <ul className="flex items-center gap-4">
           <li><a href="#about">About</a></li>

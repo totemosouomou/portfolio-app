@@ -1,152 +1,65 @@
 import React from 'react';
 import Header from './components/Header/Header.jsx';
+import AboutMe from './components/AboutMe.jsx';
+import Skills from './components/Skills.jsx';
+import Projects from './components/Projects.jsx';
 import styles from './App.module.scss';
-import TeamProjectsSection from './components/TeamProjectsSection.jsx';
-import MyProjectsSection from './components/MyProjectsSection.jsx';
 
 const App = () => {
+
+  // マイルストーンの配列を定義
+  const milestones = [
+    'HTML・CSS・JavaScript・Laravel・MySQL 学習を開始：2023年12月3日',
+    'first commit：2024年1月19日',
+    '30 commit：2024年2月17日',
+    '60 commit：2024年3月5日',
+    'チーム開発の現場へメンバーの一員として参加：2024年3月8日',
+    'チーム開発 search の責任者として MVC を制作：2024年4月5日（Heroku：Hroku CLI）',
+    'オンラインプログラミングスクール向けwebアプリを制作：2024年5月17日（X-Server：SSH）',
+    '自走力があり、自社開発企業で十分に活躍できるランク：2024年6月20日（TechTrain の Rank Up 判定＝Junior Engineer）',
+    'ubuntu の環境構築と Linux コマンドを使用した個人用パスワードマネージャーを制作：2024年6月27日（公開鍵と秘密鍵）',
+    'Portfolio サイトを公開：2024年7月3日（Render：Vite + React）',
+  ];
+
   return (
     <div className={styles.app}>
-      <Header />
+
+      <Header name="丸岡裕也" title="Junior Engineer" />
+
       <main className="flex-1">
 
-        <section id="about" className="bg-gray-100 bg-opacity-75 py-12">
-          <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <img
-                src="/profile-image.jpg"
-                width={500}
-                height={500}
-                alt="Profile Image"
-                className="mx-auto rounded-full w-64 h-64 object-cover"
-              />
-            </div>
-            <div className="space-y-4 mx-2">
-              <h2 className="text-3xl font-bold">About Me</h2>
-              <p className="text-muted-foreground text-sm">
-                親子エンジニアになることは一つ目標としていることです。
-              </p>
-              <p className="text-muted-foreground text-sm">
-                「息子との関係を良好に保つこと」と両立して、「困っていることを一つ一つ解決できること」や、「短期間でスピーディーに新しいサービスを生み出せること」に憧れています。フルスタックエンジニアになろうとしています。
-              </p>
-            </div>
-          </div>
-        </section>
+        <AboutMe
+          imagePath="/profile-image.jpg"
+          aboutTitle="About Me"
+          aboutText1="親子エンジニアになることは一つ目標としていることです。"
+          aboutText2="「息子との関係を良好に保つこと」と両立して、「困っていることを一つ一つ解決できること」や、「短期間でスピーディーに新しいサービスを生み出せること」に憧れています。フルスタックエンジニアになりたい！"
+        />
 
-        <section className="bg-background bg-white py-12" id="skills">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold mb-8">Skills</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="bg-gray-100 bg-opacity-75 rounded-lg p-4 flex flex-col items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-8 h-8 mb-2"
-                >
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-                <h3 className="text-lg font-bold">Linux</h3>
-                <p className="text-muted-foreground text-sm">
-                  Experienced in using Linux, particularly Windows Subsystem for Linux (Ubuntu).
-                </p>
-              </div>
-              <div className="bg-gray-100 bg-opacity-75 rounded-lg p-4 flex flex-col items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-8 h-8 mb-2"
-                >
-                  <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-                  <line x1="12" x2="12" y1="22" y2="15.5"></line>
-                  <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
-                  <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
-                  <line x1="12" x2="12" y1="2" y2="8.5"></line>
-                </svg>
-                <h3 className="text-lg font-bold">React</h3>
-                <p className="text-muted-foreground text-sm">
-                  Experienced in building web applications with React.
-                </p>
-              </div>
-              <div className="bg-gray-100 bg-opacity-75 rounded-lg p-4 flex flex-col items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-8 h-8 mb-2"
-                >
-                  <rect x="16" y="16" width="6" height="6" rx="1"></rect>
-                  <rect x="2" y="16" width="6" height="6" rx="1"></rect>
-                  <rect x="9" y="2" width="6" height="6" rx="1"></rect>
-                  <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
-                  <path d="M12 12V8"></path>
-                </svg>
-                <h3 className="text-lg font-bold">Laravel</h3>
-                <p className="text-muted-foreground text-sm">
-                  Experienced in building server-side applications with Laravel.
-                </p>
-              </div>
-              <div className="bg-gray-100 bg-opacity-75 rounded-lg p-4 flex flex-col items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-8 h-8 mb-2"
-                >
-                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                  <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
-                  <path d="M3 12A9 3 0 0 0 21 12"></path>
-                </svg>
-                <h3 className="text-lg font-bold">MySQL</h3>
-                <p className="text-muted-foreground text-sm">
-                  Experienced in designing and implementing relational databases.
-                </p>
-              </div>
-            </div>
-            <ul className="pt-10 pl-10 w-full pr-0">
-              <li>HTML・CSS・JavaScript・Laravel・MySQL 学習を開始：2023年12月3日</li>
-              <li>first commit：2024年1月19日</li>
-              <li>30 commit：2024年2月17日</li>
-              <li>60 commit：2024年3月5日</li>
-              <li>チーム開発の現場へメンバーの一員として参加：2024年3月8日</li>
-              <li>チーム開発 search の責任者として MVC を制作：2024年4月5日（Heroku：Hroku CLI）</li>
-              <li>オンラインプログラミングスクール向けwebアプリを制作：2024年5月17日（X-Server：SSH）</li>
-              <li>自走力があり、自社開発企業で十分に活躍できるランク：2024年6月20日（TechTrain の Rank Up 判定＝Junior Engineer）</li>
-              <li>ubuntu の環境構築と Linux コマンドを使用した個人用パスワードマネージャーを制作：2024年6月27日（公開鍵と秘密鍵）</li>
-              <li>Portfolio サイトを公開：2024年7月3日（Render：Vite + React）</li>
-            </ul>
-          </div>
-        </section>
+        <Skills
+          milestones={milestones.map((milestone, index) => (
+            milestone // マイルストーンの配列を渡す
+          ))}
+        />
 
-        <TeamProjectsSection />
+        <Projects
+          id="teams"
+          title="Team Project"
+          appName="Gift Catalog"
+          image1="/baby-detail.png"
+          image2="/baby-search.png"
+          description="チーム4人体制で、自社内商品を管理するシステムとして開発。個々人の能力により販売力に差がありました。自動的にギフト化する仕組みがあるシステムへ移行することで、同時提案件数が増えることを期待した。"
+          comment="講師コメント：家事や仕事で忙しい方が多い中、一か月間の短い期間ですごく頑張られていたかと思います。Slack でのやり取りも良くできており、チーム内での情報共有と連携もできていました。今後は自分が書いたコードと他の方のコードを見て、どのように連携しているかや、皆さんの機能についても検証・解析を行ってみましょう！また、今回の開発で身についたスキルは今後の自主制作等の開発に活かしてもらえたらと思います。"
+        />
 
-        <MyProjectsSection />
+        <Projects
+          id="projects"
+          title="My Project"
+          appName="Share Article"
+          image1="/school-detail.png"
+          image2="/school-top.png"
+          description="同期入校した生徒同士が、カリキュラムを学ぶ中で役に立った記事をシェアする・コメントの仕組みを開発。学びのアウトプット機会が増え、オンラインで離れた中でも互いに切磋琢磨する気持ちが育まれることを期待した。"
+          comment="講師コメント：明確な問題意識を持って、持てる技術を注力し解決に取り組まれています！機能が本当に素晴らしいですね！同じ入校月の生徒さん同士が切磋琢磨できる環境が一段と整うのではないでしょうか！^^そして機能だけではなくデザインも優れています！ブランドカラーが設定されており、まるで既存のアプリケーションのような仕上がりです！NGワードも設定されており、ユーザーの安心安全にも配慮がなされています！「何となくサイトを開くと、一つ記事が目に入って、読んでしまう」→これだけでも学習に繋がりますね！^^"
+        />
 
       </main>
     </div>
