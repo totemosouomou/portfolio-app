@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "target": "es5",                     /* コンパイル後の JavaScript のバージョン */
     "module": "commonjs",                /* モジュールのバンドル方法 */
     "jsx": "react",                      /* JSX を有効にする */
@@ -13,6 +14,6 @@
   },
   "include": [
     "./src/**/*"                          /* コンパイル対象とするファイルのパス */
-  ],
+, "webpack.server.config.js", "webpack.client.config.js"  ],
   "exclude": ["node_modules"]
 }

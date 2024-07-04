@@ -3,33 +3,50 @@
   "homepage": "https://totemosouomou.github.io/portfolio-app/",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
-"scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "rm": "rimraf docs",
-  "mv": "xcopy /E /I dist docs",
-  "git": "git add . && git commit && git push origin main",
-  "deploy": "npm run rm && npm run build && npm run mv && npm run git",
-  "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-  "preview": "vite preview"
-},
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "rm": "rimraf docs",
+    "mv": "xcopy /E /I dist docs",
+    "pages": "npm run rm && npm run build && npm run mv",
+    "csr": "webpack --config webpack.client.config.js",
+    "ssr": "npm run rm && npm run build && npm run mv && webpack --config webpack.server.config.js && npm run csr",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "server": "babel server src -d build_server",
+    "start": "babel-node server/index.js"
+  },
   "dependencies": {
+    "express": "^4.19.2",
     "node-sass": "^9.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/node": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^7.1.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "sass": "^1.77.6",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
     "tailwindcss": "^3.4.4",
+    "ts-loader": "^9.5.1",
     "typescript": "^5.5.3",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   }
 }

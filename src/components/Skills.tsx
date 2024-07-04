@@ -9,7 +9,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
   const skillsData = [
     {
       name: 'Linux',
-      description: 'Experienced in using Linux, particularly Windows Subsystem for Linux (Ubuntu).',
+      description: 'Experienced in using Ubuntu on WSL (Windows Subsystem for Linux).',
       svgPath: (
         <>
           <polyline points="16 18 22 12 16 6"></polyline>
@@ -19,7 +19,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
     },
     {
       name: 'React',
-      description: 'Experienced in building web applications with React.',
+      description: 'Experienced in building web applications with TypeScript.',
       svgPath: (
         <>
           <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
@@ -32,7 +32,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
     },
     {
       name: 'Laravel',
-      description: 'Experienced in building server-side applications with Laravel.',
+      description: 'Experienced in crafting server-side applications with PHP.',
       svgPath: (
         <>
           <rect x="16" y="16" width="6" height="6" rx="1"></rect>
