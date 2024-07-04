@@ -10,6 +10,7 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = () => {
+  const base = process.env.GITHUB_PAGES ? '/portfolio-app' : './';
 
   // マイルストーンの配列を定義
   const milestones = [
@@ -33,7 +34,7 @@ const App: React.FC<AppProps> = () => {
       <main className="flex-1">
 
         <AboutMe
-          imagePath="/profile-image.jpg"
+          imagePath={`${base}/profile-image.jpg`}
           aboutTitle="About Me"
           aboutText1="親子エンジニアになることは一つ目標としていることです。"
           aboutText2="「息子との関係を良好に保つこと」と両立して、「困っていることを一つ一つ解決できること」や、「短期間でスピーディーに新しいサービスを生み出せること」に憧れています。フルスタックエンジニアになりたい！"
@@ -49,8 +50,8 @@ const App: React.FC<AppProps> = () => {
           id="teams"
           title="Team Project"
           appName="Gift Catalog"
-          image1="/baby-detail.png"
-          image2="/baby-search.png"
+          image1={`${base}/baby-detail.png`}
+          image2={`${base}/baby-search.png`}
           description="チーム4人体制で、自社内商品を管理するシステムとして開発。個々人の能力により販売力に差がありました。自動的にギフト化する仕組みがあるシステムへ移行することで、同時提案件数が増えることを期待した。"
           comment="講師コメント：家事や仕事で忙しい方が多い中、一か月間の短い期間ですごく頑張られていたかと思います。Slack でのやり取りも良くできており、チーム内での情報共有と連携もできていました。今後は自分が書いたコードと他の方のコードを見て、どのように連携しているかや、皆さんの機能についても検証・解析を行ってみましょう！また、今回の開発で身についたスキルは今後の自主制作等の開発に活かしてもらえたらと思います。"
         />
@@ -59,8 +60,8 @@ const App: React.FC<AppProps> = () => {
           id="projects"
           title="My Project"
           appName="Share Article"
-          image1="/school-detail.png"
-          image2="/school-top.png"
+          image1={`${base}/school-detail.png`}
+          image2={`${base}/school-top.png`}
           description="同期入校した生徒同士が、カリキュラムを学ぶ中で役に立った記事をシェアする・コメントの仕組みを開発。学びのアウトプット機会が増え、オンラインで離れた中でも互いに切磋琢磨する気持ちが育まれることを期待した。"
           comment="講師コメント：明確な問題意識を持って、持てる技術を注力し解決に取り組まれています！機能が本当に素晴らしいですね！同じ入校月の生徒さん同士が切磋琢磨できる環境が一段と整うのではないでしょうか！^^そして機能だけではなくデザインも優れています！ブランドカラーが設定されており、まるで既存のアプリケーションのような仕上がりです！NGワードも設定されており、ユーザーの安心安全にも配慮がなされています！「何となくサイトを開くと、一つ記事が目に入って、読んでしまう」→これだけでも学習に繋がりますね！^^"
         />
