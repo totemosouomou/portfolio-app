@@ -9,7 +9,7 @@
     "rm": "rimraf docs",
     "mv": "xcopy /E /I dist docs",
     "deploy": "gh-pages -d docs",
-    "pages": "npm run rm && npm run build && npm run mv && npm run deploy",
+    "pages": "npm run rm && npm run build && npm run mv",
     "csr": "webpack --config webpack.client.config.js",
     "ssr": "npm run rm && npm run build && npm run mv && webpack --config webpack.server.config.js && npm run csr",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
