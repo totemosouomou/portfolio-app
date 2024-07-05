@@ -1,16 +1,16 @@
-const express = require('express');
-const path = require('path');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const App = require('../src/App').default;
+const express = require('express')
+const path = require('path')
+const React = require('react')
+const ReactDOMServer = require('react-dom/server')
+const App = require('../src/App').default
 
-const app = express();
-const port = 9000;
+const app = express()
+const port = 9000
 
-app.use(express.static(path.resolve(__dirname, '../server')));
+app.use(express.static(path.resolve(__dirname, '../server')))
 
-app.get("/", (req, res) => {
-  const app = ReactDOMServer.renderToString(<App />);
+app.get('/', (req, res) => {
+  const app = ReactDOMServer.renderToString(<App />)
 
   const html = `
     <!DOCTYPE html>
@@ -25,11 +25,11 @@ app.get("/", (req, res) => {
         <div id="root">${app}</div>
     </body>
     </html>
-  `;
+  `
 
-  res.send(html);
-});
+  res.send(html)
+})
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+  console.log(`Server running at http://localhost:${port}`)
+})

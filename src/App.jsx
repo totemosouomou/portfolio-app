@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 
 const App = () => {
-  const [clientMessage, setClientMessage] = useState("");
-  const [count, setCount] = useState(0);
+  const [clientMessage, setClientMessage] = useState('')
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
-    setClientMessage("Hello World");
-  }, []);
+    setClientMessage('Hello World')
+  }, [])
 
   return (
     <>
@@ -14,7 +14,7 @@ const App = () => {
       <h2>{count}</h2>
       <button onClick={() => setCount((prev) => prev + 1)}>+Click</button>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

@@ -1,10 +1,10 @@
-import React from 'react';
-import styles from './Header.module.scss';
+import React from 'react'
+import styles from './Header.module.scss'
 
 interface HeaderProps {
-  name: string;
-  title: string;
-};
+  name: string
+  title: string
+}
 
 const Header: React.FC<HeaderProps> = ({ name, title }) => {
   return (
@@ -15,14 +15,22 @@ const Header: React.FC<HeaderProps> = ({ name, title }) => {
           <p className="text-lg font-medium">{title}</p>
         </div>
         <ul className="flex items-center gap-4">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#teams">Teams</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+          <li>
+            <a href="#teams">Teams</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
         </ul>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

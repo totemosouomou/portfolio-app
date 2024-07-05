@@ -1,38 +1,46 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from '../App.module.scss';
+import React, { useState, useEffect, useRef } from 'react'
+import styles from '../App.module.scss'
 
 interface ProjectsProps {
-  id: string;
-  title: string;
-  appName: string;
-  image1: string;
-  image2: string;
-  description: string;
-  comment: string;
-};
+  id: string
+  title: string
+  appName: string
+  image1: string
+  image2: string
+  description: string
+  comment: string
+}
 
-const Projects: React.FC<ProjectsProps> = ({ id, title, appName, image1, image2, description, comment }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
+const Projects: React.FC<ProjectsProps> = ({
+  id,
+  title,
+  appName,
+  image1,
+  image2,
+  description,
+  comment,
+}) => {
+  const [isHovered, setIsHovered] = useState(false)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
-    const textarea = textareaRef.current;
+    const textarea = textareaRef.current
     if (textarea) {
       const resizeTextarea = () => {
-        textarea.style.height = 'auto';
-        textarea.style.height = textarea.scrollHeight + 'px';
-      };
+        textarea.style.height = 'auto'
+        textarea.style.height = textarea.scrollHeight + 'px'
+      }
 
-      resizeTextarea();
-      textarea.addEventListener('input', resizeTextarea);
-      window.addEventListener('resize', resizeTextarea);
+      resizeTextarea()
+      textarea.addEventListener('input', resizeTextarea)
+      window.addEventListener('resize', resizeTextarea)
 
       return () => {
-        textarea.removeEventListener('input', resizeTextarea);
-        window.removeEventListener('resize', resizeTextarea);
-      };
+        textarea.removeEventListener('input', resizeTextarea)
+        window.removeEventListener('resize', resizeTextarea)
+      }
     }
-  }, []);
+  }, [])
 
   return (
     <section className="bg-white pt-16 pb-8 my-4" id={id}>
@@ -40,7 +48,9 @@ const Projects: React.FC<ProjectsProps> = ({ id, title, appName, image1, image2,
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <div className="flex flex-col md:col-span-1 md:mr-3">
           <h3 className="text-2xl font-semibold mb-4">{appName}</h3>
-          <p className="text-muted-foreground text-base mx-2 md:ml-5">{description}</p>
+          <p className="text-muted-foreground text-base mx-2 md:ml-5">
+            {description}
+          </p>
         </div>
         <div
           className="relative flex-shrink-0 md:col-span-2"
@@ -72,7 +82,7 @@ const Projects: React.FC<ProjectsProps> = ({ id, title, appName, image1, image2,
         readOnly
       />
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

@@ -1,15 +1,21 @@
-import React from 'react';
+import React from 'react'
 
 interface AboutMeProps {
-  imagePath: string;
-  zennLink: string;
-  aboutTitle: string;
-  aboutText1: string;
-  aboutText2: string;
-};
+  imagePath: string
+  zennLink: string
+  aboutTitle: string
+  aboutText1: string
+  aboutText2: string
+}
 
-const AboutMe: React.FC<AboutMeProps> = ({ imagePath, zennLink, aboutTitle, aboutText1, aboutText2 }) => {
-  const base = process.env.GITHUB_PAGES ? '/portfolio-app' : './';
+const AboutMe: React.FC<AboutMeProps> = ({
+  imagePath,
+  zennLink,
+  aboutTitle,
+  aboutText1,
+  aboutText2,
+}) => {
+  const base = process.env.GITHUB_PAGES ? '/portfolio-app' : './'
 
   return (
     <section id="about" className="bg-gray-100 bg-opacity-75 py-12">
@@ -25,12 +31,8 @@ const AboutMe: React.FC<AboutMeProps> = ({ imagePath, zennLink, aboutTitle, abou
         </div>
         <div className="space-y-4 mx-2">
           <h2 className="text-3xl font-bold">{aboutTitle}</h2>
-          <p className="text-muted-foreground text-sm">
-            {aboutText1}
-          </p>
-          <p className="text-muted-foreground text-sm">
-            {aboutText2}
-          </p>
+          <p className="text-muted-foreground text-sm">{aboutText1}</p>
+          <p className="text-muted-foreground text-sm">{aboutText2}</p>
           <a
             href={zennLink}
             target="_blank"
@@ -42,7 +44,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ imagePath, zennLink, aboutTitle, abou
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AboutMe;
+export default AboutMe

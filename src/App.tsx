@@ -1,16 +1,16 @@
-import React from 'react';
-import Header from './components/Header/Header';
-import AboutMe from './components/AboutMe';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import styles from './App.module.scss';
+import React from 'react'
+import Header from './components/Header/Header'
+import AboutMe from './components/AboutMe'
+import Skills from './components/Skills'
+import Projects from './components/Projects'
+import styles from './App.module.scss'
 
 interface AppProps {
   // props の型定義を追加する場合、ここに記述する
 }
 
 const App: React.FC<AppProps> = () => {
-  const base = process.env.GITHUB_PAGES ? '/portfolio-app' : './';
+  const base = process.env.GITHUB_PAGES ? '/portfolio-app' : './'
 
   // マイルストーンの配列を定義
   const milestones = [
@@ -24,15 +24,13 @@ const App: React.FC<AppProps> = () => {
     '自走力があり、自社開発企業で十分に活躍できるランク：2024年6月20日（TechTrain の Rank Up 判定＝Junior Engineer）',
     'ubuntu の環境構築と Linux コマンドを使用した個人用パスワードマネージャーを制作：2024年6月27日（公開鍵と秘密鍵）',
     'Portfolio サイトを公開：2024年7月3日（Render：Vite + React）',
-  ];
+  ]
 
   return (
     <div className={styles.app}>
-
       <Header name="丸岡裕也" title="Junior Engineer" />
 
       <main className="flex-1">
-
         <AboutMe
           imagePath={`${base}/profile-image.jpg`}
           zennLink="https://zenn.dev/souomou"
@@ -42,9 +40,10 @@ const App: React.FC<AppProps> = () => {
         />
 
         <Skills
-          milestones={milestones.map((milestone, index) => (
-            milestone // マイルストーンの配列を渡す
-          ))}
+          milestones={milestones.map(
+            (milestone, index) =>
+              milestone // マイルストーンの配列を渡す
+          )}
         />
 
         <Projects
@@ -66,10 +65,9 @@ const App: React.FC<AppProps> = () => {
           description="同期入校した生徒同士が、カリキュラムを学ぶ中で役に立った記事をシェアする・コメントの仕組みを開発。学びのアウトプット機会が増え、オンラインで離れた中でも互いに切磋琢磨する気持ちが育まれることを期待した。"
           comment="講師コメント：明確な問題意識を持って、持てる技術を注力し解決に取り組まれています！機能が本当に素晴らしいですね！同じ入校月の生徒さん同士が切磋琢磨できる環境が一段と整うのではないでしょうか！^^そして機能だけではなくデザインも優れています！ブランドカラーが設定されており、まるで既存のアプリケーションのような仕上がりです！NGワードも設定されており、ユーザーの安心安全にも配慮がなされています！「何となくサイトを開くと、一つ記事が目に入って、読んでしまう」→これだけでも学習に繋がりますね！^^"
         />
-
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
