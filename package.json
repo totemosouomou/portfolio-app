@@ -5,17 +5,14 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "start": "babel-node server/index.js",
     "rm": "rimraf docs",
     "mv": "xcopy /E /I dist docs",
-    "deploy": "gh-pages -d docs",
-    "pages": "npm run rm && npm run build && npm run mv",
-    "csr": "webpack --config webpack.client.config.js",
-    "ssr": "npm run rm && npm run build && npm run mv && webpack --config webpack.server.config.js && npm run csr",
+    "build": "npm run rm && vite build && npm run mv",
+    "csr": "babel-node server/index-csr.js",
+    "ssr": "webpack --config webpack.server.config.js && webpack --config webpack.client.config.js && npm run start",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "server": "babel server src -d build_server",
-    "start": "babel-node server/index.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "express": "^4.19.2",

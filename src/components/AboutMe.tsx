@@ -2,12 +2,15 @@ import React from 'react';
 
 interface AboutMeProps {
   imagePath: string;
+  zennLink: string;
   aboutTitle: string;
   aboutText1: string;
   aboutText2: string;
 };
 
-const AboutMe: React.FC<AboutMeProps> = ({ imagePath, aboutTitle, aboutText1, aboutText2 }) => {
+const AboutMe: React.FC<AboutMeProps> = ({ imagePath, zennLink, aboutTitle, aboutText1, aboutText2 }) => {
+  const base = process.env.GITHUB_PAGES ? '/portfolio-app' : './';
+
   return (
     <section id="about" className="bg-gray-100 bg-opacity-75 py-12">
       <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
@@ -28,6 +31,14 @@ const AboutMe: React.FC<AboutMeProps> = ({ imagePath, aboutTitle, aboutText1, ab
           <p className="text-muted-foreground text-sm">
             {aboutText2}
           </p>
+          <a
+            href={zennLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center mt-4"
+          >
+            <img src={`${base}/zenn-logo.png`} alt="zenn-logo" width="80px" />
+          </a>
         </div>
       </div>
     </section>

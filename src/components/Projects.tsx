@@ -35,7 +35,7 @@ const Projects: React.FC<ProjectsProps> = ({ id, title, appName, image1, image2,
   }, []);
 
   return (
-    <section className="bg-background bg-white pt-16 pb-8 my-4" id={id}>
+    <section className="bg-white pt-16 pb-8 my-4" id={id}>
       <h2 className="text-3xl col-span-3 font-bold mb-0">{title}</h2>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         <div className="flex flex-col md:col-span-1 md:mr-3">

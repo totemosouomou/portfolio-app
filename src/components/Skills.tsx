@@ -57,7 +57,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
   ];
 
   return (
-    <section className="bg-background bg-white py-12" id="skills">
+    <section className="bg-white py-12" id="skills">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold mb-8">Skills</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
