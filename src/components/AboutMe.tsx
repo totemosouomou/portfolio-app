@@ -3,6 +3,7 @@ import React from 'react'
 interface AboutMeProps {
   imagePath: string
   zennLink: string
+  gitLink: string
   aboutTitle: string
   aboutText1: string
   aboutText2: string
@@ -11,6 +12,7 @@ interface AboutMeProps {
 const AboutMe: React.FC<AboutMeProps> = ({
   imagePath,
   zennLink,
+  gitLink,
   aboutTitle,
   aboutText1,
   aboutText2,
@@ -37,9 +39,18 @@ const AboutMe: React.FC<AboutMeProps> = ({
             href={zennLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center mt-4"
+            className="inline-flex items-center mt-4 mr-4"
           >
             <img src={`${base}/zenn-logo.png`} alt="zenn-logo" width="80px" />
+          </a>
+          <a
+            href={gitLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center ml-4 mt-4"
+          >
+            <img src={`${base}/github-mark.png`} alt="github-mark" width="21px" />
+            <img src={`${base}/github-logo.png`} alt="github-logo" width="70px" />
           </a>
         </div>
       </div>

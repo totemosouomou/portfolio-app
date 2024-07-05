@@ -1,0 +1,42 @@
+/* Skills.scss */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.floating {
+  animation: float 2s infinite ease-in-out;
+}
+
+@keyframes paddings {
+  0% {
+    padding-top: 20px;
+  }
+  100% {
+    padding-top: 0px;
+  }
+}
+
+.scaled-parent {
+  animation: paddings 2s ease forwards;
+}
+
+@keyframes margins {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 20px;
+  }
+}
+
+.scaled-child {
+  animation: margins 2s ease forwards;
+}

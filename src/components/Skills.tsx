@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import './Skills.css'
+import React, { useState, useEffect } from 'react';
+import './Skills.scss';
 
 interface SkillsProps {
-  milestones: string[]
+  milestones: string[];
 }
 
 interface Skill {
-  name: string
-  description: string
-  svgPath: JSX.Element
+  name: string;
+  description: string;
+  svgPath: JSX.Element;
 }
 
 const skillsData: Skill[] = [
   {
     name: 'Linux',
-    description:
-      'Experienced in using Ubuntu on WSL (Windows Subsystem for Linux).',
+    description: 'Experienced in using Ubuntu on WSL (Windows Subsystem for Linux).',
     svgPath: (
       <>
         <polyline points="16 18 22 12 16 6"></polyline>
@@ -51,8 +50,7 @@ const skillsData: Skill[] = [
   },
   {
     name: 'MySQL',
-    description:
-      'Experienced in designing and implementing relational databases.',
+    description: 'Experienced in designing and implementing relational databases.',
     svgPath: (
       <>
         <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
@@ -61,34 +59,38 @@ const skillsData: Skill[] = [
       </>
     ),
   },
-]
+];
 
 const Skills: React.FC<SkillsProps> = ({ milestones }) => {
-  const [visibleIndexes, setVisibleIndexes] = useState<number[]>([])
+  const [floatingIndexes, setFloatingIndexes] = useState<number[]>([]);
+  const [scaledClass, setScaledClass] = useState<boolean>(false);
 
   useEffect(() => {
-    setVisibleIndexes(skillsData.map((_, index) => index))
-
+    // 各要素の上下運動を設定
     skillsData.forEach((_, index) => {
-      setTimeout(
-        () => {
-          setVisibleIndexes((prev) => prev.filter((v) => v !== index))
-        },
-        index * 300 + (index === 1 ? 100 : 0)
-      )
-    })
-  }, [])
+      setTimeout(() => {
+        setFloatingIndexes((prev) => [...prev, index]);
+        // 6秒後にアニメーションを終了
+        setTimeout(() => {
+          setFloatingIndexes((prev) => prev.filter((v) => v !== index));
+          if (index === skillsData.length - 1) {
+            setScaledClass(true);
+          }
+        }, 6000);
+      }, index * 300 + (index === 1 ? 100 : 0));
+    });
+  }, []);
 
   return (
     <section className="bg-white py-12" id="skills">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold mb-8">Skills</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {skillsData.map((skill, index) => (
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${scaledClass ? 'scaled-parent' : ''}`}>
+        {skillsData.map((skill, index) => (
             <div
               key={index}
               className={`bg-gray-100 bg-opacity-75 rounded-lg p-4 flex flex-col items-center ${
-                visibleIndexes.includes(index) ? '' : 'floating'
+                floatingIndexes.includes(index) ? 'floating' : ''
               }`}
             >
               <svg
@@ -101,7 +103,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="w-8 h-8 mb-2"
+                className={`w-8 h-8 mb-2 ${scaledClass ? 'scaled-child' : ''}`}
               >
                 {skill.svgPath}
               </svg>
@@ -119,7 +121,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
         </ul>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;
