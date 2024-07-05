@@ -5,12 +5,13 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "start": "babel-node server/index.js",
+    "build": "vite build",
     "rm": "rimraf docs",
     "mv": "xcopy /E /I dist docs",
-    "build": "npm run rm && vite build && npm run mv",
+    "pages": "npm run rm && vite build && npm run mv",
+    "server": "babel-node server/index.js",
     "csr": "babel-node server/index-csr.js",
-    "ssr": "webpack --config webpack.server.config.js && webpack --config webpack.client.config.js && npm run start",
+    "ssr": "webpack --config webpack.server.config.js && webpack --config webpack.client.config.js && npm run server",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
