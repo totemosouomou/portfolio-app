@@ -42,8 +42,7 @@ const App: React.FC<AppProps> = () => {
 
         <Skills
           milestones={milestones.map(
-            (milestone, index) =>
-              milestone // マイルストーンの配列を渡す
+            (milestone, index) => milestone // マイルストーンの配列を渡す
           )}
         />
 

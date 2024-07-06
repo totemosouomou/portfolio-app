@@ -49,8 +49,16 @@ const AboutMe: React.FC<AboutMeProps> = ({
             rel="noopener noreferrer"
             className="inline-flex items-center ml-4 mt-4"
           >
-            <img src={`${base}/github-mark.png`} alt="github-mark" width="21px" />
-            <img src={`${base}/github-logo.png`} alt="github-logo" width="70px" />
+            <img
+              src={`${base}/github-mark.png`}
+              alt="github-mark"
+              width="21px"
+            />
+            <img
+              src={`${base}/github-logo.png`}
+              alt="github-logo"
+              width="70px"
+            />
           </a>
         </div>
       </div>

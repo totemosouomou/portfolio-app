@@ -15,7 +15,20 @@
   animation: float 2s infinite ease-in-out;
 }
 
-@keyframes paddings {
+@keyframes parent {
+  0% {
+    margin-bottom: 12px;
+  }
+  100% {
+    margin-bottom: 12px;
+  }
+}
+
+.scaled-parent {
+  animation: parent 2s ease forwards;
+}
+
+@keyframes current {
   0% {
     padding-top: 20px;
   }
@@ -24,11 +37,11 @@
   }
 }
 
-.scaled-parent {
-  animation: paddings 2s ease forwards;
+.scaled-current {
+  animation: current 2s ease forwards;
 }
 
-@keyframes margins {
+@keyframes child {
   0% {
     margin-top: 0px;
   }
@@ -38,5 +51,5 @@
 }
 
 .scaled-child {
-  animation: margins 2s ease forwards;
+  animation: child 2s ease forwards;
 }
