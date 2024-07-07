@@ -53,3 +53,32 @@
 .scaled-child {
   animation: child 2s ease forwards;
 }
+
+.scaled-button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fafafa;
+  border-radius: 100px;
+
+  &:hover {
+    background-color: #fcfcfc;
+  }
+
+  .text-sm {
+    font-size: 12px;
+    font-weight: normal;
+  }
+}

@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import './Skills.scss'
+import React, { useState, useEffect } from 'react';
+import './Skills.scss';
 
 interface SkillsProps {
-  milestones: string[]
+  milestones: string[];
 }
 
 interface Skill {
-  name: string
-  description: string
-  svgPath: JSX.Element
+  name: string;
+  description: string;
+  svgPath: JSX.Element;
 }
 
 const skillsData: Skill[] = [
@@ -61,42 +61,77 @@ const skillsData: Skill[] = [
       </>
     ),
   },
-]
+];
+
+const randomComments = [
+  'Great job!',
+  'Keep it up!',
+  'You can do it!',
+  'Amazing work!',
+  'Fantastic effort!',
+];
+
+const getRandomComment = () => {
+  return randomComments[Math.floor(Math.random() * randomComments.length)];
+};
 
 const Skills: React.FC<SkillsProps> = ({ milestones }) => {
-  const [floatingIndexes, setFloatingIndexes] = useState<number[]>([])
-  const [scaledClass, setScaledClass] = useState<boolean>(false)
+  const [floatingIndexes, setFloatingIndexes] = useState<number[]>([]);
+  const [scaledClass, setScaledClass] = useState<boolean>(false);
+  const [showButtonIndex, setShowButtonIndex] = useState<number | null>(null);
+  const [count, setCount] = useState(0);
+  const [randomComment, setRandomComment] = useState('');
+
+  const handleButtonClick = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
 
   useEffect(() => {
     // 各要素の上下運動を設定
     skillsData.forEach((_, index) => {
       setTimeout(
         () => {
-          setFloatingIndexes((prev) => [...prev, index])
+          setFloatingIndexes((prev) => [...prev, index]);
           // 6秒後にアニメーションを終了
           setTimeout(() => {
-            setFloatingIndexes((prev) => prev.filter((v) => v !== index))
+            setFloatingIndexes((prev) => prev.filter((v) => v !== index));
             if (index === skillsData.length - 1) {
-              setScaledClass(true)
+              setScaledClass(true);
             }
-          }, 6000)
+          }, 6000);
         },
         index * 300 + (index === 1 ? 100 : 0)
-      )
-    })
-  }, [])
+      );
+    });
+
+    // リロード9秒後に動作開始
+    const intervalId = setTimeout(() => {
+      const animateRandomElement = () => {
+        const randomIndex = Math.floor(Math.random() * skillsData.length);
+        setShowButtonIndex(randomIndex);
+        setRandomComment(getRandomComment());
+        setTimeout(() => {
+          setShowButtonIndex(null);
+        }, 1000);
+
+        const randomDelay = Math.random() * (2000 - 1000) + 1000;
+        setTimeout(animateRandomElement, randomDelay);
+      };
+      animateRandomElement();
+    }, 9000);
+
+    return () => {
+      clearTimeout(intervalId);
+    };
+  }, []);
 
   return (
     <section className="bg-white py-12" id="skills">
       <div className="container mx-auto">
-        <h2
-          className={`text-3xl font-bold mb-8 ${scaledClass ? 'scaled-parent' : ''}`}
-        >
-          Skills
+        <h2 className={`text-3xl font-bold mb-8 ${scaledClass ? 'scaled-parent' : ''}`}>
+          Skills <p>Count: {count}</p>
         </h2>
-        <div
-          className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${scaledClass ? 'scaled-current' : ''}`}
-        >
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${scaledClass ? 'scaled-current' : ''}`}>
           {skillsData.map((skill, index) => (
             <div
               key={index}
@@ -104,24 +139,33 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
                 floatingIndexes.includes(index) ? 'floating' : ''
               }`}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`w-8 h-8 mb-2 ${scaledClass ? 'scaled-child' : ''}`}
-              >
-                {skill.svgPath}
-              </svg>
-              <h3 className="text-lg font-bold">{skill.name}</h3>
-              <p className="text-muted-foreground text-sm">
-                {skill.description}
-              </p>
+              {showButtonIndex === index ? (
+                <button className="scaled-button" onClick={handleButtonClick}>
+                  {randomComment}
+                  <p className="text-sm">{count}</p>
+                </button>
+              ) : (
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`w-8 h-8 mb-2 ${scaledClass ? 'scaled-child' : ''}`}
+                  >
+                    {skill.svgPath}
+                  </svg>
+                  <h3 className="text-lg font-bold">{skill.name}</h3>
+                  <p className="text-muted-foreground text-sm">
+                    {skill.description}
+                  </p>
+                </>
+              )}
             </div>
           ))}
         </div>
@@ -132,7 +176,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
         </ul>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;
