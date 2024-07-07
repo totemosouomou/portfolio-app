@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react';
 import Header from './components/Header/Header'
+import StickyHeader from './components/Header/StickyHeader'
 import AboutMe from './components/AboutMe'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
@@ -10,6 +11,7 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
   const base = process.env.GITHUB_PAGES ? '/portfolio-app' : './'
 
   // マイルストーンの配列を定義
@@ -28,7 +30,11 @@ const App: React.FC<AppProps> = () => {
 
   return (
     <div className={styles.app}>
-      <Header name="丸岡裕也" title="Junior Engineer" />
+
+      <div ref={headerRef}>
+        <Header name="丸岡裕也" title="Junior Engineer" />
+      </div>
+      <StickyHeader headerRef={headerRef} meetingUrl="https://calendar.app.google/jypE761CoXB6LJi87" />
 
       <main className="flex-1">
         <AboutMe
