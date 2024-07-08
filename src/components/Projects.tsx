@@ -74,6 +74,8 @@ const Projects: React.FC<ProjectsProps> = ({
             <div className="m-4">
               <a
                 href={linkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center text-green-500 hover:underline"
               >
                 <svg
