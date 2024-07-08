@@ -62,13 +62,16 @@ const Projects: React.FC<ProjectsProps> = ({
   }, [])
 
   return (
-    <section className="bg-white pt-16 pb-8 my-4" id={id}>
+    <section className="bg-white pt-8 md:pt-12 pb-8 my-4 projects" id={id}>
       <h2 className="text-3xl col-span-3 font-bold mb-0">{title}</h2>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 items-center">
         <div className="flex flex-col md:col-span-1 md:mr-3">
           <h3 className="text-2xl font-semibold mb-4">{appName}</h3>
-          <div className="mb-4 p-2 sm:pr-5 sm:pt-4 md:p-0 xl:pt-4 xl:pr-3 bg-white rounded-lg shadow-lg flex flex-col sm:flex-row md:flex-col lg:flex-col xl:flex-row justify-between items-center">
-            <div className="m-4">
+          <p className="text-muted-foreground text-base mx-2 md:ml-5">
+            {description}
+          </p>
+          <div className="mt-2 p-2 md:ml-2 sm:pr-5 sm:pt-4 md:p-0 xl:pt-3 xl:pr-3 bg-white rounded-lg shadow-lg flex flex-col sm:flex-row md:flex-col lg:flex-col xl:flex-row justify-between items-center">
+            <div className="sm:pl-3 md:pl-0 mb-2 mt-2 sm:mb-0 sm:mt-0 md:mt-2 lg:m-4">
               <a
                 href={linkUrl}
                 target="_blank"
@@ -93,11 +96,11 @@ const Projects: React.FC<ProjectsProps> = ({
               </a>
             </div>
             <div className="flex flex-col items-end">
-              <div className="flex md:flex-col lg:flex-row items-start lg:items-center mb-2">
-                <label className="mr-2 lg:mr-0 lg:mb-2" htmlFor="userId">
+              <div className="flex md:flex-col lg:flex-row items-start mb-2">
+                <label className="mr-2 lg:mb-2" htmlFor="userId">
                   ID:
                 </label>
-                <div className="flex items-start lg:items-center">
+                <div className="flex items-start">
                   <input
                     type="text"
                     id="userId"
@@ -117,11 +120,11 @@ const Projects: React.FC<ProjectsProps> = ({
                   </CopyToClipboard>
                 </div>
               </div>
-              <div className="flex md:flex-col lg:flex-row items-start lg:items-center mb-2">
-                <label className="mr-2 lg:mr-0 lg:mb-2" htmlFor="userId">
+              <div className="flex md:flex-col lg:flex-row items-start mb-2">
+                <label className="mr-2 lg:mb-2 " htmlFor="userId">
                   Pass:
                 </label>
-                <div className="flex items-start lg:items-center">
+                <div className="flex items-start">
                   <input
                     type="text"
                     id="password"
@@ -148,9 +151,6 @@ const Projects: React.FC<ProjectsProps> = ({
               )}
             </div>
           </div>
-          <p className="text-muted-foreground text-base mx-2 md:ml-5">
-            {description}
-          </p>
         </div>
         <div
           className="relative flex-shrink-0 md:col-span-2"
