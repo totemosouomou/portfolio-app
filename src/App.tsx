@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef } from 'react'
 import Header from './components/Header/Header'
 import StickyHeader from './components/Header/StickyHeader'
 import AboutMe from './components/AboutMe'
@@ -11,7 +11,7 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null)
   const base = process.env.GITHUB_PAGES ? '/portfolio-app' : './'
 
   // マイルストーンの配列を定義
@@ -30,11 +30,13 @@ const App: React.FC<AppProps> = () => {
 
   return (
     <div className={styles.app}>
-
       <div ref={headerRef}>
         <Header name="丸岡裕也" title="Junior Engineer" />
       </div>
-      <StickyHeader headerRef={headerRef} meetingUrl="https://calendar.app.google/jypE761CoXB6LJi87" />
+      <StickyHeader
+        headerRef={headerRef}
+        meetingUrl="https://calendar.app.google/jypE761CoXB6LJi87"
+      />
 
       <main className="flex-1">
         <AboutMe
@@ -58,6 +60,9 @@ const App: React.FC<AppProps> = () => {
           appName="Gift Catalog"
           image1={`${base}/baby-detail.png`}
           image2={`${base}/baby-search.png`}
+          linkUrl="https://team199-bcdc2192c3c3.herokuapp.com/"
+          userId="maruoka@example.com"
+          password="password"
           description="チーム4人体制で、自社内商品を管理するシステムとして開発。ユーザー（社員ID）管理と在庫管理の機能追加。また、自動的にギフト化する仕組みがあるシステムへ移行することで、お客様への同時提案件数が増えることを期待した。"
           comment="講師コメント：家事や仕事で忙しい方が多い中、一か月間の短い期間ですごく頑張られていたかと思います。Slack でのやり取りも良くできており、チーム内での情報共有と連携もできていました。今後は自分が書いたコードと他の方のコードを見て、どのように連携しているかや、皆さんの機能についても検証・解析を行ってみましょう！また、今回の開発で身についたスキルは今後の自主制作等の開発に活かしてもらえたらと思います。"
         />
@@ -68,6 +73,9 @@ const App: React.FC<AppProps> = () => {
           appName="Share Article"
           image1={`${base}/school-detail.png`}
           image2={`${base}/school-top.png`}
+          linkUrl="https://souomou.cloudfree.jp/techis/login"
+          userId="maruoka@example.com"
+          password="password"
           description="ユーザー（生徒さん）が、カリキュラムを学ぶ中で役に立った記事をシェアする・コメントの仕組みを開発。学びのアウトプット機会を増やし、オンラインで離れた中でも、同期と切磋琢磨する気持ちが育まれることを期待した。"
           comment="講師コメント：明確な問題意識を持って、持てる技術を注力し解決に取り組まれています！機能が本当に素晴らしいですね！同じ入校月の生徒さん同士が切磋琢磨できる環境が一段と整うのではないでしょうか！^^そして機能だけではなくデザインも優れています！ブランドカラーが設定されており、まるで既存のアプリケーションのような仕上がりです！NGワードも設定されており、ユーザーの安心安全にも配慮がなされています！「何となくサイトを開くと、一つ記事が目に入って、読んでしまう」→これだけでも学習に繋がりますね！^^"
         />

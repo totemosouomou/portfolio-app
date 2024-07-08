@@ -25,7 +25,7 @@
 }
 
 .scaled-parent {
-  animation: parent 2s ease forwards;
+  animation: parent 1s ease forwards;
 }
 
 @keyframes current {
@@ -38,7 +38,7 @@
 }
 
 .scaled-current {
-  animation: current 2s ease forwards;
+  animation: current 1s ease forwards;
 }
 
 @keyframes child {
@@ -51,7 +51,7 @@
 }
 
 .scaled-child {
-  animation: child 2s ease forwards;
+  animation: child 1s ease forwards;
 }
 
 .scaled-button {

@@ -1,28 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import './Skills.scss';
+import React, { useState, useEffect } from 'react'
+import './Skills.scss'
 
 interface SkillsProps {
-  milestones: string[];
+  milestones: string[]
 }
 
 interface Skill {
-  name: string;
-  description: string;
-  svgPath: JSX.Element;
+  name: string
+  description: string
+  svgPath: JSX.Element
 }
 
 const skillsData: Skill[] = [
-  {
-    name: 'Linux',
-    description:
-      'Experienced in using Ubuntu on WSL (Windows Subsystem for Linux).',
-    svgPath: (
-      <>
-        <polyline points="16 18 22 12 16 6"></polyline>
-        <polyline points="8 6 2 12 8 18"></polyline>
-      </>
-    ),
-  },
   {
     name: 'React',
     description: 'Experienced in building web applications with TypeScript.',
@@ -61,7 +50,18 @@ const skillsData: Skill[] = [
       </>
     ),
   },
-];
+  {
+    name: 'Linux',
+    description:
+      'Experienced in using Ubuntu on WSL (Windows Subsystem for Linux).',
+    svgPath: (
+      <>
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </>
+    ),
+  },
+]
 
 const randomComments = [
   'Great job!',
@@ -69,69 +69,73 @@ const randomComments = [
   'You can do it!',
   'Amazing work!',
   'Fantastic effort!',
-];
+]
 
 const getRandomComment = () => {
-  return randomComments[Math.floor(Math.random() * randomComments.length)];
-};
+  return randomComments[Math.floor(Math.random() * randomComments.length)]
+}
 
 const Skills: React.FC<SkillsProps> = ({ milestones }) => {
-  const [floatingIndexes, setFloatingIndexes] = useState<number[]>([]);
-  const [scaledClass, setScaledClass] = useState<boolean>(false);
-  const [showButtonIndex, setShowButtonIndex] = useState<number | null>(null);
-  const [count, setCount] = useState(0);
-  const [randomComment, setRandomComment] = useState('');
+  const [floatingIndexes, setFloatingIndexes] = useState<number[]>([])
+  const [scaledClass, setScaledClass] = useState<boolean>(false)
+  const [showButtonIndex, setShowButtonIndex] = useState<number | null>(null)
+  const [count, setCount] = useState(0)
+  const [randomComment, setRandomComment] = useState('')
 
   const handleButtonClick = () => {
-    setCount((prevCount) => prevCount + 1);
-  };
+    setCount((prevCount) => prevCount + 1)
+  }
 
   useEffect(() => {
     // 各要素の上下運動を設定
     skillsData.forEach((_, index) => {
       setTimeout(
         () => {
-          setFloatingIndexes((prev) => [...prev, index]);
+          setFloatingIndexes((prev) => [...prev, index])
           // 6秒後にアニメーションを終了
           setTimeout(() => {
-            setFloatingIndexes((prev) => prev.filter((v) => v !== index));
+            setFloatingIndexes((prev) => prev.filter((v) => v !== index))
             if (index === skillsData.length - 1) {
-              setScaledClass(true);
+              setScaledClass(true)
             }
-          }, 6000);
+          }, 6000)
         },
         index * 300 + (index === 1 ? 100 : 0)
-      );
-    });
+      )
+    })
 
     // リロード9秒後に動作開始
     const intervalId = setTimeout(() => {
       const animateRandomElement = () => {
-        const randomIndex = Math.floor(Math.random() * skillsData.length);
-        setShowButtonIndex(randomIndex);
-        setRandomComment(getRandomComment());
+        const randomIndex = Math.floor(Math.random() * skillsData.length)
+        setShowButtonIndex(randomIndex)
+        setRandomComment(getRandomComment())
         setTimeout(() => {
-          setShowButtonIndex(null);
-        }, 1000);
+          setShowButtonIndex(null)
+        }, 1000)
 
-        const randomDelay = Math.random() * (2000 - 1000) + 1000;
-        setTimeout(animateRandomElement, randomDelay);
-      };
-      animateRandomElement();
-    }, 9000);
+        const randomDelay = Math.random() * (2000 - 1000) + 1500
+        setTimeout(animateRandomElement, randomDelay)
+      }
+      animateRandomElement()
+    }, 9000)
 
     return () => {
-      clearTimeout(intervalId);
-    };
-  }, []);
+      clearTimeout(intervalId)
+    }
+  }, [])
 
   return (
     <section className="bg-white py-12" id="skills">
       <div className="container mx-auto">
-        <h2 className={`text-3xl font-bold mb-8 ${scaledClass ? 'scaled-parent' : ''}`}>
+        <h2
+          className={`text-3xl font-bold mb-8 ${scaledClass ? 'scaled-parent' : ''}`}
+        >
           Skills <p>Count: {count}</p>
         </h2>
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${scaledClass ? 'scaled-current' : ''}`}>
+        <div
+          className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${scaledClass ? 'scaled-current' : ''}`}
+        >
           {skillsData.map((skill, index) => (
             <div
               key={index}
@@ -176,7 +180,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
         </ul>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills
