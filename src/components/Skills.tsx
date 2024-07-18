@@ -14,7 +14,7 @@ interface Skill {
 const skillsData: Skill[] = [
   {
     name: 'React',
-    description: 'Experienced in building web applications with TypeScript.',
+    description: 'Experienced in building web apps using React, Express, and TypeScript.',
     svgPath: (
       <>
         <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
@@ -27,7 +27,7 @@ const skillsData: Skill[] = [
   },
   {
     name: 'Laravel',
-    description: 'Experienced in crafting server-side applications with PHP.',
+    description: 'Experienced in crafting server-side applications with Laravel and PHP.',
     svgPath: (
       <>
         <rect x="16" y="16" width="6" height="6" rx="1"></rect>
@@ -110,6 +110,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
         const randomIndex = Math.floor(Math.random() * skillsData.length)
         setShowButtonIndex(randomIndex)
         setRandomComment(getRandomComment())
+        setCount((prevCount) => prevCount + 1)
         setTimeout(() => {
           setShowButtonIndex(null)
         }, 1000)
@@ -131,7 +132,7 @@ const Skills: React.FC<SkillsProps> = ({ milestones }) => {
         <h2
           className={`text-3xl font-bold mb-8 ${scaledClass ? 'scaled-parent' : ''}`}
         >
-          Skills <p>Count: {count}</p>
+          Skills <p>Count Up: {count}</p>
         </h2>
         <div
           className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${scaledClass ? 'scaled-current' : ''}`}
