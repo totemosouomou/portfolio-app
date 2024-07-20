@@ -31,7 +31,11 @@ const App: React.FC<AppProps> = () => {
   return (
     <div className={styles.app}>
       <div ref={headerRef}>
-        <Header name="丸岡裕也" title="Junior Engineer" />
+        <Header
+          name="丸岡裕也"
+          title="Junior Engineer"
+          meetingUrl="https://calendar.app.google/jypE761CoXB6LJi87"
+        />
       </div>
       <StickyHeader
         headerRef={headerRef}

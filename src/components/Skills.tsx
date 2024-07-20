@@ -14,7 +14,8 @@ interface Skill {
 const skillsData: Skill[] = [
   {
     name: 'React',
-    description: 'Experienced in building web apps using React, Express, and TypeScript.',
+    description:
+      'Experienced in building web apps with React, Express, and TypeScript.',
     svgPath: (
       <>
         <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
@@ -27,7 +28,8 @@ const skillsData: Skill[] = [
   },
   {
     name: 'Laravel',
-    description: 'Experienced in crafting server-side applications with Laravel and PHP.',
+    description:
+      'Experienced in crafting server-side applications with Laravel and PHP.',
     svgPath: (
       <>
         <rect x="16" y="16" width="6" height="6" rx="1"></rect>

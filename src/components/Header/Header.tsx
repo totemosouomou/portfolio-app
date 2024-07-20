@@ -4,9 +4,10 @@ import styles from './Header.module.scss'
 interface HeaderProps {
   name: string
   title: string
+  meetingUrl: string
 }
 
-const Header: React.FC<HeaderProps> = ({ name, title }) => {
+const Header: React.FC<HeaderProps> = ({ name, title, meetingUrl }) => {
   return (
     <header className={styles.header}>
       <div className="container mx-auto flex items-center justify-between">
@@ -16,7 +17,9 @@ const Header: React.FC<HeaderProps> = ({ name, title }) => {
         </div>
         <ul className="flex items-center gap-4">
           <li>
-            <a href="#about">About</a>
+            <a href={meetingUrl} target="_blank" rel="noopener noreferrer">
+              Contact
+            </a>
           </li>
           <li>
             <a href="#skills">Skills</a>
