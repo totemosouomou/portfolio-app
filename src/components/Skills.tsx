@@ -53,9 +53,9 @@ const skillsData: Skill[] = [
     ),
   },
   {
-    name: 'Linux',
+    name: 'Docker',
     description:
-      'Experienced in using Ubuntu on WSL (Windows Subsystem for Linux).',
+      'Experienced with Docker for containerization and using Ubuntu on WSL.',
     svgPath: (
       <>
         <polyline points="16 18 22 12 16 6"></polyline>
