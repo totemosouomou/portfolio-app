@@ -64,7 +64,7 @@ const App: React.FC<AppProps> = () => {
           appName="Gift Catalog"
           image1={`${base}/baby-detail.png`}
           image2={`${base}/baby-search.png`}
-          linkUrl="https://team199-bcdc2192c3c3.herokuapp.com/"
+          linkUrl="https://souomou.cloudfree.jp/gift/"
           userId="maruoka@example.com"
           password="password"
           description="チーム4人体制で、自社内商品を管理するシステムとして開発。ユーザー（社員ID）管理と在庫管理の機能追加。また、自動的にギフト化する仕組みがあるシステムへ移行することで、お客様への同時提案件数が増えることを期待した。"
